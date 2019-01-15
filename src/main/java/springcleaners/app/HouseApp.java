@@ -5,10 +5,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import springcleaners.appconfig.AppConfig;
 import springcleaners.services.interfaces.CleaningService;
-import springcleaners.tools.impl.Broom;
-import springcleaners.tools.impl.CleaningServiceImpl;
-import springcleaners.tools.impl.VacuumCleaner;
-import springcleaners.tools.interfaces.CleaningTool;
 
 public class HouseApp {
 
