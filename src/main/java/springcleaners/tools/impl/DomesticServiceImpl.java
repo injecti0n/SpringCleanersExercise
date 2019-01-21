@@ -1,13 +1,13 @@
 package springcleaners.tools.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
+import springcleaners.services.interfaces.CleaningService;
 import springcleaners.services.interfaces.DomesticService;
+import springcleaners.services.interfaces.GardeningService;
 
 public class DomesticServiceImpl implements DomesticService {
 
-	CleaningServiceImpl CleaningService;
-	GardeningServiceImpl GardingService;
+	CleaningService CleaningService;
+	GardeningService GardingService;
 
 	public void setCleaningService(CleaningServiceImpl cleaningService) {
 		CleaningService = cleaningService;
