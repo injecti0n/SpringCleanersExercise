@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import springcleaners.appconfig.AppConfig;
 import springcleaners.services.interfaces.CleaningService;
+import springcleaners.services.interfaces.DomesticService;
 
 public class HouseApp {
 
@@ -18,9 +19,12 @@ public class HouseApp {
 		 * jill.clean(); jane.clean();
 		 */
 		///// springggggg
-
-		ConfigurableApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		
+		
+	
+/*/
+ 
+		ConfigurableApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		CleaningService jill = ctx.getBean("jill", CleaningService.class);
 		CleaningService jane = ctx.getBean("jane", CleaningService.class);
@@ -28,7 +32,18 @@ public class HouseApp {
 		jill.clean();
 		jane.clean();
 		ctx.close();
+ */
 		
+		
+		try(ConfigurableApplicationContext gtx = new AnnotationConfigApplicationContext(AppConfig.class)){
+			
+			System.out.println("Container initialized");
+			DomesticService service = gtx.getBean("domesticService", DomesticService.class);
+			service.runHouseHold();
+			
+		}catch(NullPointerException ex) {
+			ex.getMessage();
+		}
 		
 	}
 

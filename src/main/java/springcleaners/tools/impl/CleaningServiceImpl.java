@@ -15,5 +15,15 @@ public class CleaningServiceImpl implements CleaningService {
 	public void setTool(CleaningTool tool) {
 		this.tool = tool;
 	}
+	
+	public void init() {
+		System.out.println("CleaningService preparing for work.");
+		
+	}
+	
+	public void destroy() {
+		System.out.println("CleaningService cleaning up.");
+	}
+	
 
 }
