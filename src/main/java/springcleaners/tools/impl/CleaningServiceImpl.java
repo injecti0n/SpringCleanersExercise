@@ -1,9 +1,18 @@
 package springcleaners.tools.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
 import springcleaners.services.interfaces.CleaningService;
 import springcleaners.tools.interfaces.CleaningTool;
 
+
+@Component
+@Primary
 public class CleaningServiceImpl implements CleaningService {
+	
+	@Autowired
 	private CleaningTool tool;
 
 	public void clean() {

@@ -1,7 +1,10 @@
 package springcleaners.tools.impl;
 
+import org.springframework.stereotype.Component;
+
 import springcleaners.tools.interfaces.GardeningTool;
 
+@Component(value="mowie")
 public class LawnMower implements GardeningTool{
 
 	@Override
