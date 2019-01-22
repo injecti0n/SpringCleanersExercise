@@ -5,7 +5,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import springcleaners.appconfig.AppConfig;
 import springcleaners.services.interfaces.CleaningService;
+import springcleaners.services.interfaces.GardeningService;
 import springcleaners.tools.impl.CleaningRobot;
+import springcleaners.tools.interfaces.GardeningTool;
 
 public class HouseApp {
 
@@ -23,11 +25,19 @@ public class HouseApp {
 		}*/
 		
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-
-
+		CleaningService smith = ctx.getBean("smith", CleaningService.class);
+		smith.clean();
+		
+		System.out.println("-------------");
+		
+		CleaningService smithx = ctx.getBean(CleaningService.class);
+		smithx.clean();
+				
+		
+		System.out.println("-------------");
+		
 		CleaningService robot= ctx.getBean(CleaningRobot.class);
 		robot.clean();
-			 
 			
 		
 	}

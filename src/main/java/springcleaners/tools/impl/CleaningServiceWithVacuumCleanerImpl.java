@@ -1,7 +1,5 @@
 package springcleaners.tools.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -9,19 +7,26 @@ import org.springframework.stereotype.Component;
 import springcleaners.services.interfaces.CleaningService;
 import springcleaners.tools.interfaces.CleaningTool;
 
-@Component
-@Qualifier("robot")
-public class CleaningRobot implements CleaningService{
+@Component("smith")
+public class CleaningServiceWithVacuumCleanerImpl implements CleaningService{
 
-	@Autowired	
-	private List<CleaningTool> tools;
+	CleaningTool tool;
 	
+	public CleaningTool getTool() {
+		return tool;
+	}
+
+	@Autowired
+	public void setTool(@Qualifier("vacuum") CleaningTool tool) {
+		this.tool = tool;
+	}
+
+	@Override
 	public void clean() {
-	
-		System.out.println("cleaning the houses with a robot");
-	
-		tools.forEach(CleaningTool::doCleanJob);
+		tool.doCleanJob();
 		
 	}
+	
+	
 
 }
